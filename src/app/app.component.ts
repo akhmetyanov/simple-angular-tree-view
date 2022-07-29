@@ -9,13 +9,15 @@ import { TreeViewNodesProducesService } from './tree-view-nodes-produces.service
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  nodes: TreeViewNode[] = []
   nodes$: Subject<TreeViewNode[]> = new Subject<TreeViewNode[]>()
 
   constructor(
     private treeViewNodesProducerService: TreeViewNodesProducesService
   ) {
-    this.nodes$ = treeViewNodesProducerService.nodes$
+    this.treeViewNodesProducerService.nodes$.subscribe(n => {
+      this.nodes = n
+    })
   }
 
   onSelectNode(node: TreeViewNode) {
