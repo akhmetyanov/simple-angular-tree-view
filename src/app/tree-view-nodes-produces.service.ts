@@ -17,7 +17,12 @@ export class TreeViewNodesProducesService {
 
     let arr: TreeViewNode[] = []
 
-    for (let i = 0; i < 10; i++) {
+    arr.push(new TreeViewNode(
+      'Nested level -1, object ' + 0, 
+      { somePropOfObject: 'object of -1 level. Object number is ' + 0 }
+    ))
+
+    for (let i = 1; i < 10; i++) {
 
       arr.push(new TreeViewNode(
           'Nested level 0, object ' + i, 
