@@ -9,7 +9,7 @@
             class="value-wrapper" 
             (click)="onSelectValue(node)"
             >
-            <div class="value">
+            <div class="value" [ngClass]="{'selected': node == selectedNode}">
                 {{ node.value }}
             </div>
         </div>
@@ -27,6 +27,7 @@
                 <div 
                     class="header-value" 
                     (click)="onSelectValue(node)"
+                    [ngClass]="{'selected': node == selectedNode}"
                 >
                     {{ node.value }}
                 </div>
@@ -36,6 +37,7 @@
                 <app-tree-view 
                     #nestedTree
                     (selected)="onSelectValue($event)"
+                    [selectedNode]="selectedNode"
                     [nodes]="node.childs"
                     >
                 </app-tree-view>

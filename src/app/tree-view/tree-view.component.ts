@@ -10,6 +10,7 @@ import { ITreeViewNode } from './itree-view-node';
 export class TreeViewComponent {
   @Input() nodes: ITreeViewNode[] = []
   @Output() selected: EventEmitter<ITreeViewNode> = new EventEmitter<ITreeViewNode>()
+  @Input() selectedNode: ITreeViewNode | null = null
 
   visibleChilds: number[] = []
 
@@ -36,6 +37,7 @@ export class TreeViewComponent {
   }
 
   onSelectValue(value: ITreeViewNode) {
+    this.selectedNode = value
     this.selected.emit(value)
   }
 }
