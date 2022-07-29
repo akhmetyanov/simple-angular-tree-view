@@ -10,11 +10,6 @@
     border-left: 1px solid gray;
     padding-left: 1em;
     margin-left: 0.7em;
-    display: none;
-}
-
-.visible {
-    display: block;
 }
 
 .value, .header-value {
@@ -28,7 +23,7 @@
 }
 
 .selected {
-    background-color: #8dcaff;
+    background-color: #beebff;
 }
 
 .arrow-wrapper {
