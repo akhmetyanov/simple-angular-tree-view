@@ -11,7 +11,6 @@ export class TreeViewComponent {
 
   @Input() nodes: ITreeViewNode[] | null | undefined = []
   @Output() selected: EventEmitter<ITreeViewNode> = new EventEmitter<ITreeViewNode>()
-  @Input() _selected: ITreeViewNode | null = null
 
   constructor() { }
 
@@ -30,7 +29,6 @@ export class TreeViewComponent {
   }
 
   onSelectValue(value: ITreeViewNode) {
-      this._selected = value
       this.selected.emit(value)
   }
 }
