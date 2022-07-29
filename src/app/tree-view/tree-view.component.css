@@ -18,6 +18,10 @@
 
 .value, .header-value {
     white-space: nowrap;
+
+    border-radius: 0.2em;
+    border: 1px solid transparent;
+
     padding: 0.3em 0.5em ;
 }
 
@@ -27,6 +31,8 @@
 }
 
 .selected {
+    border-radius: 0.2em;
+    border: 1px solid gainsboro;
     background-color: #beebff;
 }
 
