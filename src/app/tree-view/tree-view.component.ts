@@ -9,7 +9,7 @@ import { ITreeViewNode } from './itree-view-node';
 })
 export class TreeViewComponent {
 
-  @Input() nodes: ITreeViewNode[] | null | undefined = []
+  @Input() nodes: ITreeViewNode[] = []
   @Output() selected: EventEmitter<ITreeViewNode> = new EventEmitter<ITreeViewNode>()
 
   constructor() { }

@@ -1,43 +1,41 @@
-<ng-container *ngIf="nodes != undefined && nodes != null">
-    <ng-container *ngFor="let node of nodes">
-        <!-- 
-            there are two cases - when node has childs
-            and node has't childs
-        -->
-        <ng-container *ngIf="node.childs == undefined || node.childs == null || node.childs.length == 0; else has">
-            <div 
-                class="value" 
-                (click)="onSelectValue(node)"
-                >
-                {{ node.value }}
-            </div>
-        </ng-container>
-
-        <ng-template #has>
-            <div class="tree">
-                <div class="header">
-                    <div class="arrow-wrapper">
-                        <div class="arrow" (click)="onArrowClick(nested, arrow)" #arrow>
-                            <div class="arrow-right"></div>
-                        </div>
-                    </div>
-
-                    <div 
-                        class="header-value" 
-                        (click)="onSelectValue(node)"
-                    >
-                        {{ node.value }}
-                    </div>
-                </div>
-    
-                <div class="nested" #nested>
-                    <app-tree-view 
-                        (selected)="onSelectValue($event)"
-                        [nodes]="node.childs">
-                    </app-tree-view>
-                </div>
-            </div>
-        </ng-template>
-
+<ng-container *ngFor="let node of nodes">
+    <!-- 
+        there are two cases - when node has childs
+        and node has't childs
+    -->
+    <ng-container *ngIf="node.childs.length == 0; else has">
+        <div 
+            class="value" 
+            (click)="onSelectValue(node)"
+            >
+            {{ node.value }}
+        </div>
     </ng-container>
+
+    <ng-template #has>
+        <div class="tree">
+            <div class="header">
+                <div class="arrow-wrapper">
+                    <div class="arrow" (click)="onArrowClick(nested, arrow)" #arrow>
+                        <div class="arrow-right"></div>
+                    </div>
+                </div>
+
+                <div 
+                    class="header-value" 
+                    (click)="onSelectValue(node)"
+                >
+                    {{ node.value }}
+                </div>
+            </div>
+
+            <div class="nested" #nested>
+                <app-tree-view 
+                    (selected)="onSelectValue($event)"
+                    [nodes]="node.childs">
+                </app-tree-view>
+            </div>
+        </div>
+    </ng-template>
+
 </ng-container>
