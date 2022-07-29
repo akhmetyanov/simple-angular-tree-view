@@ -6,10 +6,12 @@
     -->
     <ng-container *ngIf="node.childs.length == 0; else has">
         <div 
-            class="value" 
+            class="value-wrapper" 
             (click)="onSelectValue(node)"
             >
-            {{ node.value }}
+            <div class="value">
+                {{ node.value }}
+            </div>
         </div>
     </ng-container>
 
@@ -21,7 +23,7 @@
                         <div class="arrow-right"></div>
                     </div>
                 </div>
-
+                
                 <div 
                     class="header-value" 
                     (click)="onSelectValue(node)"

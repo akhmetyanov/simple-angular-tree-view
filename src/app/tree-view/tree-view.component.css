@@ -6,14 +6,14 @@
     display: flex;
 }
 
-.header-value {
-    margin-left: 0.4em;
-}
-
 .nested {
     border-left: 1px solid gray;
     padding-left: 1em;
     margin-left: 0.65em;
+}
+
+.value-wrapper {
+    display: flex;
 }
 
 .value, .header-value {
