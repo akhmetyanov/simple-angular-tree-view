@@ -1,19 +1,22 @@
 .tree {
     padding-left: 0.5em;
+    width: 100%;
 }
 
 .header {
     display: flex;
+    width: 100%;
 }
 
 .nested {
     border-left: 1px solid gray;
     padding-left: 1em;
     margin-left: 0.65em;
+    width: 100%;
 }
 
-.value-wrapper {
-    display: flex;
+.header-value {
+    width: 100%;
 }
 
 .value, .header-value {

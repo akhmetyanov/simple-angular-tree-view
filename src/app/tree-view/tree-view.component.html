@@ -5,14 +5,12 @@
         and node has't childs
     -->
     <ng-container *ngIf="node.childs.length == 0; else has">
-        <div 
-            class="value-wrapper" 
-            (click)="onSelectValue(node)"
-            >
-            <div class="value" [ngClass]="{'selected': node == selectedNode}">
+        <div class="value" 
+                [ngClass]="{'selected': node == selectedNode}"
+                (click)="onSelectValue(node)"
+                >
                 {{ node.value }}
             </div>
-        </div>
     </ng-container>
 
     <ng-template #has>
@@ -42,7 +40,6 @@
                     >
                 </app-tree-view>
             </div>
-
         </div>
     </ng-template>
 
