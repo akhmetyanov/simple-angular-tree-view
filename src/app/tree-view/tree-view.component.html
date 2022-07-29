@@ -1,4 +1,5 @@
-<ng-container *ngFor="let node of nodes">
+
+<ng-container *ngFor="let node of nodes; let index = index">
     <!-- 
         there are two cases - when node has childs
         and node has't childs
@@ -16,7 +17,7 @@
         <div class="tree">
             <div class="header">
                 <div class="arrow-wrapper">
-                    <div class="arrow" (click)="onArrowClick(nested, arrow)" #arrow>
+                    <div class="arrow" (click)="onArrowClick(arrow, index)" #arrow>
                         <div class="arrow-right"></div>
                     </div>
                 </div>
@@ -29,12 +30,15 @@
                 </div>
             </div>
 
-            <div class="nested" #nested>
+            <div class="nested" *ngIf="visibleChilds.includes(index)">
                 <app-tree-view 
+                    #nestedTree
                     (selected)="onSelectValue($event)"
-                    [nodes]="node.childs">
+                    [nodes]="node.childs"
+                    >
                 </app-tree-view>
             </div>
+
         </div>
     </ng-template>
 

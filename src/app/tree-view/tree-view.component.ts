@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, Output, EventEmitter, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { ITreeViewNode } from './itree-view-node';
 
 @Component({
@@ -8,13 +8,15 @@ import { ITreeViewNode } from './itree-view-node';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TreeViewComponent {
-
   @Input() nodes: ITreeViewNode[] = []
   @Output() selected: EventEmitter<ITreeViewNode> = new EventEmitter<ITreeViewNode>()
 
-  constructor() { }
+  visibleChilds: number[] = []
 
-  onArrowClick(nested: HTMLDivElement, arrow: HTMLDivElement) {
+  constructor(
+  ) { }
+
+  onArrowClick(arrow: HTMLDivElement, index: number) {
     arrow = arrow.childNodes[0] as HTMLDivElement
 
     if (arrow.classList.contains('arrow-right')) {
@@ -25,10 +27,15 @@ export class TreeViewComponent {
       arrow.classList.add('arrow-right')
     }
 
-    nested.classList.toggle('visible')
+    if (this.visibleChilds.includes(index)) {
+      let i = this.visibleChilds.indexOf(index)
+      this.visibleChilds.splice(i, 1)
+    } else {
+      this.visibleChilds.push(index)
+    }
   }
 
   onSelectValue(value: ITreeViewNode) {
-      this.selected.emit(value)
+    this.selected.emit(value)
   }
 }
