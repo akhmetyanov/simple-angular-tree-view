@@ -1,0 +1,8 @@
+.wrapper {
+    margin: 0 auto;
+    border: 1px solid gainsboro;
+    height: 800px;
+    width: 250px;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    overflow: auto;
+}
